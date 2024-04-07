@@ -11,6 +11,11 @@ class LoginView(generics.GenericAPIView):
     permission_classes = (permissions.AllowAny,)
 
     def post(self, request, *args, **kwargs):
+        """
+        Login a user.
+
+        Login a user with the provided information. This endpoint expects a payload containing user details.
+        """
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data['user']
@@ -43,5 +48,10 @@ class RegisterView(generics.CreateAPIView):
 class LogoutView(views.APIView):
 
     def post(self, request, format=None):
+        """
+        Logout a user.
+
+        Logout a user with the provided information. This endpoint expects a payload containing user details.
+        """
         logout(request)
         return Response(None, status=status.HTTP_204_NO_CONTENT)
