@@ -1,5 +1,6 @@
 """
-WSGI config for config project.
+WSGI config for config project.    # path('api/', include('e_store.urls')),
+
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
